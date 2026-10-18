@@ -1,5 +1,3 @@
-
-
 @font-face {
   font-family: 'FontAwesome';
   font-display: block;
@@ -25,31 +23,57 @@
   src: url("applab/fa-v4compatibility.woff2") format("woff2");
   unicode-range: U+F041,U+F047,U+F065-F066,U+F07D-F07E,U+F080,U+F08B,U+F08E,U+F090,U+F09A,U+F0AC,U+F0AE,U+F0B2,U+F0D0,U+F0D6,U+F0E4,U+F0EC,U+F10A-F10B,U+F123,U+F13E,U+F148-F149,U+F14C,U+F156,U+F15E,U+F160-F161,U+F163,U+F175-F178,U+F195,U+F1F8,U+F219,U+F27A;
 }
-/* Make the entire app full-screen */
+
+/* ---------- Page ---------- */
 html, body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden; /* Prevents scrollbars */
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: rgb(6, 13, 103);
+  -webkit-text-size-adjust: 100%;
+  touch-action: manipulation;
 }
 
-/* Ensure the main container fills the screen */
+/* ---------- App: fixed 320x450 design, scaled + centered by fit-and-back.js ---------- */
 #divApplab {
-    width: 100vw; /* 100% of viewport width */
-    height: 100vh; /* 100% of viewport height */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  margin: 0 !important;
+  display: block !important;
+  width: 320px !important;
+  height: 450px !important;
+  transform-origin: top left;
+  overflow: hidden;
 }
 
-/* Make each screen take up the full screen */
 .screen {
-    width: 100vw !important;
-    height: 100vh !important;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
+  width: 320px !important;
+  height: 450px !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+/* ---------- Back button (always present, dimmed on the first screen) ---------- */
+#backBtn {
+  position: fixed;
+  display: block;
+  box-sizing: border-box;
+  height: 52px;
+  border: 1px solid rgb(77, 87, 95);
+  border-radius: 6px;
+  background: rgb(0, 237, 255);
+  color: #fff;
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 9999;
+}
+#backBtn:disabled {
+  opacity: 0.35;
+  cursor: default;
 }
